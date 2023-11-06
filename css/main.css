@@ -1,0 +1,125 @@
+body {
+    background-color: #1e1e1e;
+    font-family: 'Arial', sans-serif;
+    color: #ddd;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    background-color: #292929;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+h2, h3, h4, h1 {
+    color: #fff;
+}
+
+.balance-display h1, .budget-summary div p {
+    text-align: center;
+}
+
+.balance-display h1 {
+    border-bottom: 2px solid #9c88ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.budget-summary {
+    display: flex;
+    justify-content: space-between;
+    background: #222;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.budget-summary div h4 {
+    margin: 0;
+    padding: 0;
+    color: #bbb;
+}
+
+.budget-summary div p {
+    font-size: 1.2em;
+}
+
+.money.income {
+    color: #29b865;
+}
+
+.money.outgo {
+    color: #e04141;
+}
+
+.transaction-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.transaction-list li {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background: #333;
+    color: #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-list li .delete-btn {
+    background-color: #e04141;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 3px 6px;
+}
+
+.form-section {
+    margin-bottom: 15px;
+}
+
+.form-section label {
+    color: #bbb;
+}
+
+.form-section input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #ddd;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #9c88ff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #a99eff;
+}
+
+.delete-btn:hover {
+    opacity: 0.7;
+}
+
+
+
+

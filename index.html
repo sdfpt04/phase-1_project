@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <h2>Budget Calculator</h2>
+        
+        <div class="balance-display">
+            <h4>Balance</h4>
+            <h1 id="current-balance">$0.00</h1>
+        </div>
+
+        <div class="budget-summary">
+            <div>
+                <h4>Earnings</h4>
+                <p id="total-earnings" class="money income">+0.00</p>
+            </div>
+            <div>
+                <h4>Expenses</h4>
+                <p id="total-expenses" class="money outgo">-0.00</p>
+            </div>
+        </div>
+
+        <h3>Transactions</h3>
+        <ul id="transaction-record" class="transaction-list">
+            <!-- Transaction records will be listed here -->
+        </ul>
+
+        <h3>Create New Transaction</h3>
+
+        <form id="transaction-form">
+            <div class="form-section">
+              <label for="transaction-type">Type:</label>
+              <select id="transaction-type" required>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+            </div>
+            <div class="form-section">
+              <label for="description">Description:</label>
+              <input type="text" id="description" placeholder="Enter description..." required />
+            </div>
+            <div class="form-section">
+              <label for="amount">Amount:</label>
+              <input type="number" id="amount" placeholder="Enter amount..." required />
+            </div>
+            <button type="submit" class="submit-btn">Add Transaction</button>
+          </form>
+          
+
+
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+
+
