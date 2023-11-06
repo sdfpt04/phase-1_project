@@ -44,12 +44,14 @@ document.getElementById('convert-currency').addEventListener('click', async () =
   }
 });
 
-async function fetchTransactions() {
-  const response = await fetch('http://localhost:3000/transactions');
-  return response.json();
+// Use localStorage to fetch transactions
+function fetchTransactions() {
+  const transactionsJSON = localStorage.getItem('transactions');
+  return transactionsJSON ? JSON.parse(transactionsJSON) : [];
 }
 
-async function handleTransactionSubmit(e) {
+// Handle form submission
+function handleTransactionSubmit(e) {
   e.preventDefault();
 
   const amount = Math.abs(parseFloat(domElements.amountInput.value)) * (domElements.transactionTypeSelect.value === 'expense' ? -1 : 1);
@@ -66,11 +68,9 @@ async function handleTransactionSubmit(e) {
     type: domElements.transactionTypeSelect.value,
   };
 
-  await fetch('http://localhost:3000/transactions', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(transactionData)
-  });
+  const transactions = fetchTransactions();
+  transactions.push(transactionData);
+  localStorage.setItem('transactions', JSON.stringify(transactions));
 
   domElements.descriptionInput.value = '';
   domElements.amountInput.value = '';
@@ -78,10 +78,11 @@ async function handleTransactionSubmit(e) {
   updateUI();
 }
 
-async function deleteTransaction(id) {
-  await fetch(`http://localhost:3000/transactions/${id}`, {
-    method: 'DELETE'
-  });
+// Delete transaction function
+function deleteTransaction(id) {
+  const transactions = fetchTransactions();
+  const updatedTransactions = transactions.filter(transaction => transaction.id !== id);
+  localStorage.setItem('transactions', JSON.stringify(updatedTransactions));
 
   updateUI();
 }
@@ -94,7 +95,7 @@ function updateTransactionsUI(transactions) {
     const transactionElement = document.createElement('li');
     transactionElement.className = transaction.amount < 0 ? 'outgo' : 'income';
     transactionElement.innerHTML = `
-      ${transaction.description} <span>${sign}$${Math.abs(transaction.amount)}</span>
+      ${transaction.description} <span>${sign}KSH ${Math.abs(transaction.amount)}</span>
       <button class="delete-btn" onclick="deleteTransaction(${transaction.id})">x</button>
     `;
     domElements.transactionRecord.appendChild(transactionElement);
@@ -115,7 +116,7 @@ function updateBalanceDisplays(transactions) {
 }
 
 async function updateUI() {
-  const transactions = await fetchTransactions();
+  const transactions = fetchTransactions();
   updateTransactionsUI(transactions);
 }
 
