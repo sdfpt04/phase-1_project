@@ -15,6 +15,7 @@
             <h1 id="current-balance">$0.00</h1>
         </div>
 
+
         <div class="budget-summary">
             <div>
                 <h4>Earnings</h4>
@@ -26,9 +27,17 @@
             </div>
         </div>
 
+        <div id="currency-converter">
+            <select id="currency-selector">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
+            <button id="convert-currency">Convert Currency</button>
+          </div>
+
         <h3>Transactions</h3>
         <ul id="transaction-record" class="transaction-list">
-            <!-- Transaction records will be listed here -->
         </ul>
 
         <h3>Create New Transaction</h3>
