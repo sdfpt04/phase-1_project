@@ -1,4 +1,3 @@
-// DOM elements
 const domElements = {
   currentBalance: document.getElementById('current-balance'),
   totalEarnings: document.getElementById('total-earnings'),
@@ -30,7 +29,7 @@ async function convertCurrency(amount, fromCurrency, toCurrency) {
   } catch (error) {
     console.error(error);
     alert('Currency conversion failed: ' + error.message);
-    return null; // Indicate failure
+    return null; 
   }
 }
 
@@ -44,7 +43,7 @@ document.getElementById('convert-currency').addEventListener('click', async () =
   }
 });
 
-// Use localStorage to fetch transactions
+
 function fetchTransactions() {
   const transactionsJSON = localStorage.getItem('transactions');
   return transactionsJSON ? JSON.parse(transactionsJSON) : [];

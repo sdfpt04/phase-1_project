@@ -121,9 +121,8 @@ h2, h3, h4, h1 {
 }
 
 
-/* Example styles for currency converter */
 #currency-converter {
-    margin-top: 10px; /* Adjust as needed */
+    margin-top: 10px; 
   }
   
   #currency-selector {
@@ -133,13 +132,12 @@ h2, h3, h4, h1 {
   
   #convert-currency {
     padding: 5px;
-    background-color: #4CAF50; /* Example button color */
+    background-color: #4CAF50; 
     color: white;
     border: none;
     cursor: pointer;
   }
   
-  /* Hover effect for the button */
   #convert-currency:hover {
     background-color: #45a049;
   }
